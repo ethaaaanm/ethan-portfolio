@@ -34,6 +34,9 @@
   --accent-dark: #854d0e;
   --accent-soft: rgba(161, 98, 7, 0.08);
   --accent-glow: rgba(161, 98, 7, 0.1);
+
+  --secondary: #5C7A3F;
+  --secondary-soft: rgba(92, 122, 63, 0.08);
 }
 
 @theme {
@@ -50,6 +53,9 @@
   --color-accent: var(--accent);
   --color-accent-dark: var(--accent-dark);
   --color-accent-soft: var(--accent-soft);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-soft: var(--secondary-soft);
 
   --font-display: 'Fraunces', Georgia, serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -131,27 +137,31 @@
 
   .landing-grid {
     display: grid;
-    gap: 14px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: minmax(200px, auto) minmax(200px, auto) minmax(200px, auto);
+    gap: 16px;
+    grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      'who     who    signal curr'
-      'onfield stack  signal trips'
-      'onfield nexus  nexus  contact';
+      'hero hero hero hero hero hero hero hero portrait portrait portrait portrait'
+      'hero hero hero hero hero hero hero hero portrait portrait portrait portrait'
+      'stats stats stats stats now now now now stack stack stack stack'
+      'experience experience experience experience experience experience projects projects projects projects projects projects'
+      'experience experience experience experience experience experience projects projects projects projects projects projects'
+      'passions passions passions passions passions passions contact contact contact contact contact contact'
+      'passions passions passions passions passions passions resume resume resume resume resume resume';
   }
 
   @media (max-width: 1024px) {
     .landing-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-      gap: 12px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
       grid-template-areas:
-        'who     who'
-        'signal  curr'
-        'signal  stack'
-        'nexus   nexus'
-        'onfield onfield'
-        'trips   contact';
+        'hero hero hero hero hero hero'
+        'portrait portrait portrait portrait portrait portrait'
+        'stats stats now now stack stack'
+        'experience experience experience experience experience experience'
+        'projects projects projects projects projects projects'
+        'passions passions passions passions passions passions'
+        'contact contact contact contact contact contact'
+        'resume resume resume resume resume resume';
     }
   }
 
@@ -160,14 +170,16 @@
       grid-template-columns: 1fr;
       gap: 10px;
       grid-template-areas:
-        'who'
-        'signal'
-        'curr'
-        'nexus'
+        'hero'
+        'portrait'
+        'stats'
+        'now'
         'stack'
-        'onfield'
-        'trips'
-        'contact';
+        'experience'
+        'projects'
+        'passions'
+        'contact'
+        'resume';
     }
   }
 }

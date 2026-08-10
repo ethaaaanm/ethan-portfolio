@@ -59,7 +59,7 @@ export default function Nav() {
         ethan<span className="text-accent">.</span>
       </Link>
 
-      <NavLinks className="mx-auto hidden items-center gap-5 text-sm font-medium md:flex" />
+      <NavLinks className="hidden flex-1 items-center justify-evenly px-20 text-sm font-medium md:flex" />
 
       <div className="ml-auto flex items-center gap-2.5">
         <button

@@ -4,6 +4,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Experience from './pages/Experience'
 import Projects from './pages/Projects'
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <ThemeProvider>
+      <ScrollToTop />
       <div className="flex min-h-screen flex-col">
         <Nav />
         <main className="flex-1">

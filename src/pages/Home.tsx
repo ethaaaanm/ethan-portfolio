@@ -1,28 +1,32 @@
 import { Link } from 'react-router-dom'
 import Portrait from '../assets/landing_profile.jpg'
-import { FaLongArrowAltRight } from 'react-icons/fa'
+import { FaDownload, FaLongArrowAltRight } from 'react-icons/fa'
 import Reveal from '../components/Reveal'
 
-const STACK = ['Kotlin', 'Jetpack Compose', 'AAOS', 'React', 'TypeScript', 'Firebase']
+const STACK = [
+  'Kotlin',
+  'Jetpack Compose',
+  'Android Automotive OS',
+  'React',
+  'TypeScript',
+  'Firebase',
+  'CI/CD',
+  'LLM integration',
+]
 
-function SignalGraphic() {
-  const bars = [40, 70, 30, 90, 50, 65, 35, 80, 45, 60, 55, 75]
+function PhotoStripPlaceholder() {
+  const labels = ['Sports', 'Trail', 'Travel', 'Food']
   return (
-    <div className="flex h-16 items-end gap-1">
-      {bars.map((h, i) => (
-        <span key={i} className="w-1.5 flex-1 rounded-full bg-accent/40" style={{ height: `${h}%` }} />
+    <div className="mt-5 grid grid-cols-4 gap-2.5">
+      {labels.map((label) => (
+        <div
+          key={label}
+          className="flex aspect-square items-center justify-center rounded-[10px] border border-dashed border-line text-center text-[0.65rem] font-medium text-ink-dim"
+          style={{ background: 'linear-gradient(160deg, #1a1608 0%, #111111 100%)' }}
+        >
+          {label}
+        </div>
       ))}
-    </div>
-  )
-}
-
-function PlaceholderVisual({ label }: { label: string }) {
-  return (
-    <div
-      className="flex h-24 items-center justify-center rounded-[10px] border border-dashed border-line text-center text-[0.7rem] font-medium text-ink-dim"
-      style={{ background: 'linear-gradient(160deg, #1a1608 0%, #111111 100%)' }}
-    >
-      {label}
     </div>
   )
 }
@@ -30,159 +34,142 @@ function PlaceholderVisual({ label }: { label: string }) {
 export default function Home() {
   return (
     <div className="pt-16 pb-16">
-      {/* Hero */}
-      <section className="mx-auto max-w-[1400px] px-6 py-14 sm:px-8">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.3fr_1fr]">
-          <Reveal>
-            <p className="mb-5 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
-              Toronto · Software Developer
-            </p>
-            <h1 className="font-display mb-6 text-[clamp(2.75rem,6vw,5rem)] font-black leading-[0.95] tracking-tight text-ink">
-              The glue that keeps<br />the team shipping.
-            </h1>
-            <p className="mb-8 max-w-[560px] text-[1.05rem] leading-relaxed text-ink-muted">
-              Mobile developer at Jiffy. Built AAOS infotainment on pre-release GM vehicles.
-              Runs a 4-sport community league on the side.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/experience" className="btn-primary">
-                See my work <FaLongArrowAltRight className="text-sm" />
-              </Link>
-              <Link to="/contact" className="btn-secondary">
-                Get in touch
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1} className="relative">
-            <div
-              className="aspect-[4/5] w-full max-w-[380px] justify-self-center overflow-hidden rounded-card border border-line lg:justify-self-end"
-              style={{ background: 'linear-gradient(160deg, #1a1608 0%, #111111 100%)' }}
-            >
-              <img src={Portrait} alt="Portrait of Ethan" className="h-full w-full object-cover" />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Bento grid */}
-      <section className="mx-auto max-w-[1400px] px-6 pb-14 sm:px-8">
+      <div className="mx-auto max-w-[1400px] px-6 py-7 sm:px-8">
         <div className="landing-grid">
 
-          {/* Who I am */}
-          <Reveal className="card [grid-area:who]">
-            <div className="tile-label">Profile</div>
-            <p className="max-w-[640px] text-base leading-relaxed text-ink-muted">
-              I'm the developer who does whatever the team needs — Android one day, automotive
-              infotainment the next, full-stack web on the side. Quick to learn, easy to work
-              with, and I always find a way to ship.
+          {/* A — Hero */}
+          <Reveal className="card flex min-h-[260px] flex-col justify-center p-10 [grid-area:hero]">
+            <div
+              className="pointer-events-none absolute -bottom-24 -right-24 h-[450px] w-[450px] rounded-full"
+              style={{ background: 'radial-gradient(circle, var(--accent-glow) 0%, transparent 65%)' }}
+            />
+            <p className="mb-4 font-mono text-s font-medium uppercase tracking-[0.14em] text-accent">
+              Software Developer · Toronto
+            </p>
+            <h1 className="font-display mb-5 text-[clamp(2rem,3.4vw,3rem)] font-black leading-[1.05] tracking-tight text-ink">
+              With a foundation in software and business, I build technology that meets real-world needs.
+            </h1>
+            <p className="max-w-[560px] text-[0.95rem] leading-relaxed text-ink-muted">
+              Android developer with 3+ years of production experience across consumer apps, automotive systems, and LLM-powered assistants.
             </p>
           </Reveal>
 
-          {/* Automotive */}
-          <Reveal delay={0.05} className="[grid-area:signal]">
-            <Link to="/experience" className="card flex h-full flex-col">
-              <div className="tile-label">Signal / CAN</div>
-              <p className="mb-6 text-sm leading-relaxed text-ink-muted">
-                Shipped AAOS features on pre-release GM vehicles — telephony, volume,
-                multi-display, CAN bus integration. If it touches the car's software stack,
-                I've probably been in it.
-              </p>
-              <div className="mt-auto">
-                <SignalGraphic />
-              </div>
-            </Link>
-          </Reveal>
-
-          {/* Currently */}
-          <Reveal delay={0.1} className="[grid-area:curr]">
-            <Link to="/experience" className="card flex h-full flex-col">
-              <div className="tile-label">Currently</div>
-              <p className="text-sm leading-relaxed text-ink-muted">
-                Mobile dev @ Jiffy · building a card game into a web app · leveling up my pickleball.
-              </p>
-            </Link>
-          </Reveal>
-
-          {/* On the field */}
-          <Reveal delay={0.15} className="[grid-area:onfield]">
-            <Link to="/passions" className="card flex h-full flex-col">
-              <div className="tile-label">On Field</div>
-              <p className="mb-4 text-sm leading-relaxed text-ink-muted">
-                Pickleball, ultimate, spikeball — I play in as many of them as my schedule
-                allows, and run the league that ties them together.
-              </p>
-              <div className="mt-auto">
-                <PlaceholderVisual label="Sports collage — coming soon" />
-              </div>
-            </Link>
-          </Reveal>
-
-          {/* Stack */}
-          <Reveal delay={0.2} className="[grid-area:stack]">
-            <Link to="/projects" className="card flex h-full flex-col">
-              <div className="tile-label">Stack</div>
-              <div className="flex flex-wrap gap-1.5">
-                {STACK.map((s) => (
-                  <span key={s} className="chip">{s}</span>
-                ))}
-              </div>
-            </Link>
-          </Reveal>
-
-          {/* Where I've been */}
-          <Reveal delay={0.25} className="[grid-area:trips]">
-            <Link to="/passions" className="card flex h-full flex-col">
-              <div className="tile-label">03 Trips</div>
-              <p className="mb-4 text-sm font-semibold text-ink">Belize · China · Kenya</p>
-              <div className="mt-auto">
-                <PlaceholderVisual label="Landscape shot — coming soon" />
-              </div>
-            </Link>
-          </Reveal>
-
-          {/* Nexus League */}
-          <Reveal delay={0.3} className="[grid-area:nexus]">
-            <Link to="/projects" className="card flex h-full flex-col">
-              <div className="tile-label">Project 01</div>
-              <p className="mb-4 max-w-[520px] text-sm leading-relaxed text-ink-muted">
-                <span className="font-semibold text-ink">Nexus Sports League</span> — a full-stack
-                web app for the community league I help run: standings, schedules, and stats,
-                built for the people who play.
-              </p>
-              <div className="mt-auto">
-                <PlaceholderVisual label="Site thumbnail — coming soon" />
-              </div>
-            </Link>
-          </Reveal>
-
-          {/* Contact */}
-          <Reveal delay={0.35} className="[grid-area:contact]">
-            <div className="card flex h-full flex-col">
-              <div className="tile-label">Contact</div>
-              <p className="mb-4 text-sm leading-relaxed text-ink-muted">
-                Open to roles, freelance, and cool ideas.
-              </p>
-              <Link to="/contact" className="btn-primary mt-auto self-start">
-                Get in touch
-              </Link>
+          {/* B — Portrait */}
+          <Reveal delay={0.05} className="group relative overflow-hidden rounded-card border border-line-accent [grid-area:portrait]">
+            <img src={Portrait} alt="Portrait of Ethan" className="h-full min-h-[260px] w-full object-cover" />
+            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/90 to-transparent px-4 pb-3 pt-8 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              Secret: I've hid an Easter Egg on one of the other pages.
             </div>
           </Reveal>
 
-        </div>
-      </section>
+          {/* C — Summary */}
+          <Reveal delay={0.1} className="card [grid-area:stats]">
+            <div className="tile-label">A bit about me</div>
+            <p className="text-sm leading-relaxed text-ink-muted">
+              I'm an <span className="font-semibold text-accent">Android developer</span> at Jiffy
+              on Demand, where I've spent three years shipping a consumer app to{' '}
+              <span className="font-semibold text-accent">500K+ users</span>.
+              Before that, two co-op terms at GM building infotainment features now in Cadillac vehicles. Lately I'm building where{' '}
+              <span className="font-semibold text-accent">mobile meets AI</span> — most recently
+              an <span className="font-semibold text-accent">LLM chat assistant</span>.
+            </p>
+          </Reveal>
 
-      {/* Closing band */}
-      <Reveal>
-        <section className="border-t border-line px-6 py-16 text-center sm:px-8">
-          <p className="font-display mb-6 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-            Range, ownership, and a good attitude. That's the whole pitch.
-          </p>
-          <Link to="/contact" className="btn-primary">
-            Get in touch <FaLongArrowAltRight className="text-sm" />
-          </Link>
-        </section>
-      </Reveal>
+          {/* D — Outside of work */}
+          <Reveal delay={0.15} className="card [grid-area:now]">
+            <div className="tile-label">Outside of work</div>
+            <p className="text-sm leading-relaxed text-ink-muted">
+              Running the Nexus League, a Christian rec sports league, playing pickleball, and
+              building a productivity app of my own.
+            </p>
+          </Reveal>
+
+          {/* E — Stack */}
+          <Reveal delay={0.2} className="card [grid-area:stack]">
+            <div className="tile-label">Stack</div>
+            <div className="flex flex-wrap gap-1.5">
+              {STACK.map((s) => (
+                <span key={s} className="chip">{s}</span>
+              ))}
+            </div>
+            <Link to="/experience" className="relative z-10 mt-3 inline-flex items-center gap-1.5 text-[0.78rem] font-semibold text-accent transition-all hover:gap-2.5">
+              The full stack →
+            </Link>
+          </Reveal>
+
+          {/* F — Experience */}
+          <Reveal delay={0.25} className="[grid-area:experience]">
+            <Link to="/experience" className="card flex h-full flex-col">
+              <div className="tile-label">01 — Experience</div>
+              <h2 className="font-display mb-3 text-xl font-bold leading-tight tracking-tight text-ink">
+                The full story behind the resume lines.
+              </h2>
+              <p className="mb-6 text-sm leading-relaxed text-ink-muted">
+                What I've shipped, and what broke along the way. <br /> A deep dive into my journey so far
+              </p>
+              <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                Read the full story <FaLongArrowAltRight className="text-xs" />
+              </span>
+            </Link>
+          </Reveal>
+
+          {/* G — Projects */}
+          <Reveal delay={0.3} className="[grid-area:projects]">
+            <Link to="/projects" className="card flex h-full flex-col">
+              <div className="tile-label">02 — Projects</div>
+              <h2 className="font-display mb-3 text-xl font-bold leading-tight tracking-tight text-ink">
+                From side projects to things I've built because I needed them.              </h2>
+              <p className="mb-6 text-sm leading-relaxed text-ink-muted">
+                A league platform and matchmaking algorithm, an educational platformer game, a card game going digital. Usually how I
+                find out what I don't know yet.
+              </p>
+              <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                See what I've built <FaLongArrowAltRight className="text-xs" />
+              </span>
+            </Link>
+          </Reveal>
+
+          {/* H — Passions */}
+          <Reveal delay={0.35} className="[grid-area:passions]">
+            <Link to="/passions" className="card flex h-full flex-col">
+              <div className="tile-label">03 — Passions</div>
+              <h2 className="font-display mb-2 text-xl font-bold leading-tight tracking-tight text-ink">
+                Sports, Travel, and Food
+              </h2>
+              <PhotoStripPlaceholder />
+              <span className="relative z-10 mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                Get to know me <FaLongArrowAltRight className="text-xs" />
+              </span>
+            </Link>
+          </Reveal>
+
+          {/* I — Contact (the one amber CTA tile) */}
+          <Reveal delay={0.4} className="[grid-area:contact]">
+            <Link to="/contact" className="flex h-full flex-col justify-center rounded-card bg-accent p-7 transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-accent-dark">
+              <h2 className="font-display mb-2 text-xl font-bold leading-tight tracking-tight text-white">
+                Let's build something.
+              </h2>
+              <p className="mb-4 text-sm leading-relaxed text-white/85">
+                Full-time roles, freelance app work, or an idea you can't stop thinking about.
+              </p>
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white">
+                Get in touch <FaLongArrowAltRight className="text-xs" />
+              </span>
+            </Link>
+          </Reveal>
+
+          {/* J — Resume */}
+          <Reveal delay={0.45} className="[grid-area:resume]">
+            <a href={`${import.meta.env.BASE_URL}resume-public.pdf`} download className="card flex h-full items-center justify-between gap-3">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-ink-dim">
+                Resume.pdf · Updated July 2026
+              </span>
+              <FaDownload className="text-accent" />
+            </a>
+          </Reveal>
+
+        </div>
+      </div>
     </div>
   )
 }

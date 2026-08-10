@@ -72,16 +72,16 @@ const GM_FEATURES = [
 
 const PILLARS = [
   {
-    label: 'Range',
-    desc: 'Mobile, automotive/embedded, and web — comfortable across the whole stack, not just one layer of it.',
+    label: 'Hard Surfaces',
+    desc: "I ship where the feedback loop is slow and expensive. Automotive isn't web. You can't hotfix a car. Telephony hard-key controls, mute/volume services, and multi-display location handling, all validated against pre-release vehicle builds and hardware-in-the-loop rigs. It taught me to get it right before it ships — a useful habit everywhere else too.",
   },
   {
-    label: 'Ownership',
-    desc: "I take on initiatives nobody asked for — Fastlane, the emulator guide — and make sure they outlast me.",
+    label: 'AI as a Tool and as a Product',
+    desc: "I use it daily and I'm shipping it. Claude Code speeds up boilerplate, migrations, and repetitive work daily, which means real judgment about where it helps and where it quietly makes things worse. Right now: an LLM-powered chat assistant shipping into the production app. Using the tools is table stakes; shipping the product is the part worth talking about.",
   },
   {
-    label: 'Glue',
-    desc: 'The teammate who onboards, unblocks, and keeps cross-functional work aligned.',
+    label: 'I Take the Unowned Thing',
+    desc: "Nobody assigned me most of what I'm proudest of. Nobody asked for the Fastlane pipeline; the manual release process was costing the team time every release, so it got fixed. Nobody made the emulator setup a job either — happened to be the intern who'd already dug into the pre-release emulator the year before, wrote the guide, and was still there when the whole org moved onto it.",
   },
 ]
 
@@ -142,9 +142,9 @@ export default function Experience() {
             </div>
             <Reveal delay={0.05} className="mb-7 max-w-[760px] text-[0.95rem] leading-relaxed text-ink-muted">
               I joined as an intern who could barely get Android Studio to build. Three years
-              later I drive epics end-to-end and I'm the glue holding a 10-person cross-platform
-              team (iOS, Android, Web) together during planning and delivery on a 500K+ user app —
-              the one making sure the team actually enjoys building it together.
+              later I drive epics end-to-end and keep a 10-person cross-platform team (iOS,
+              Android, Web) aligned during planning and delivery on a 500K+ user app — the one
+              making sure the team actually enjoys building it together.
             </Reveal>
             <div className="mb-8 grid grid-cols-1 gap-3.5 md:grid-cols-2 lg:grid-cols-3">
               {JIFFY_FEATURES.map((f, i) => (
@@ -169,7 +169,7 @@ export default function Experience() {
 
           {/* General Motors — the differentiator */}
           <TimelineNode emphasized>
-            <div className="rounded-r-card border-l-4 border-accent bg-accent-soft/40 p-6 sm:p-7">
+            <div className="rounded-card border border-line-accent bg-accent-soft/40 p-6 sm:p-7">
               <Reveal className="flex flex-wrap items-center gap-4.5">
                 <img src={GMLogo} alt="General Motors logo" className="w-[140px]" />
                 <div className="min-w-[200px] flex-1">
@@ -212,14 +212,13 @@ export default function Experience() {
             </div>
           </TimelineNode>
 
-          {/* Queen's University — compact */}
+          {/* Queen's University — compact, no dates per the education rule */}
           <TimelineNode isLast>
             <Reveal className="flex flex-wrap items-center gap-4.5">
               <div className="min-w-[200px] flex-1">
                 <div className="font-display text-[1.3rem] font-extrabold tracking-tight text-ink">Queen's University</div>
                 <div className="text-sm font-semibold text-accent">B.Computing, Software Design</div>
               </div>
-              <span className="whitespace-nowrap font-mono text-xs text-ink-dim">2020 – 2025</span>
             </Reveal>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
               Minor in Business · Certificate in Entrepreneurship &amp; Innovation
