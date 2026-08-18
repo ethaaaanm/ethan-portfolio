@@ -27,7 +27,7 @@ const JIFFY_FEATURES = [
     tags: ['Mixpanel', 'LaunchDarkly', 'Customer.io'],
   },
   {
-    name: 'XML → Compose Architecture Migration',
+    name: 'XML to Compose Architecture Migration',
     desc: 'Migrated core flows out of legacy XML/VIPER into Jetpack Compose and MVVM inside dedicated feature modules — including the job booking flow, discounted credits UI, pro rating flows, and chat bubble/list redesigns — without breaking live user traffic.',
     tags: ['Jetpack Compose', 'MVVM', 'Feature Modules'],
   },
@@ -50,38 +50,33 @@ const JIFFY_ALSO_IN_THE_MIX = [
 const GM_FEATURES = [
   {
     name: 'Hard-Key Telephony Controls',
-    desc: 'Built end-to-end software letting drivers answer and end calls from console and multi-function controller buttons, coordinating vehicle signal handling, the AAOS telephony stack, and HMI teams.',
+    desc: 'Answer and end calls straight from the console and controller buttons. I wired the physical keys through vehicle signal handling and the AAOS telephony stack, working with the HMI team to make it feel instant.',
     tags: ['Java', 'AAOS', 'HMI Integration'],
   },
   {
     name: 'Mute & Volume Control Services',
-    desc: "Shipped mute and volume control services for GM's Android Automotive infotainment system, validated against pre-release vehicle builds and hardware configurations.",
+    desc: "The mute and volume services behind GM's infotainment audio built in Java and validated against pre-release vehicle builds and real hardware configurations.",
     tags: ['Java', 'AAOS'],
   },
   {
     name: 'Passenger-Side Location Services',
-    desc: "Enabled location services for the passenger display in GM's multi-display architecture, powering location-aware apps independent of the driver display.",
-    tags: ['AAOS', 'Multi-Display'],
-  },
-  {
-    name: 'VIP Platform & CAN Integration',
-    desc: "Developed infotainment features on GM's VIP platform, working with CAN bus signals and ARXML communication descriptions to integrate Android Automotive with the vehicle's software-defined architecture.",
-    tags: ['CAN Bus', 'ARXML', 'JNI'],
+    desc: "Location for the passenger's own screen. In GM's multi-display setup, I gave the passenger display its own location services so its apps could work independently of the driver's.",
+    tags: ['Java', 'AAOS', 'Multi-Display'],
   },
 ]
 
 const PILLARS = [
   {
-    label: 'Hard Surfaces',
-    desc: "I ship where the feedback loop is slow and expensive. Automotive isn't web. You can't hotfix a car. Telephony hard-key controls, mute/volume services, and multi-display location handling, all validated against pre-release vehicle builds and hardware-in-the-loop rigs. It taught me to get it right before it ships — a useful habit everywhere else too.",
+    label: 'Built for High Stakes',
+    desc: "Some of my earliest work shipped straight into cars. Telephony controls, audio services, multi-display location handling validated against pre-release vehicle builds and hardware-in-the-loop rigs. Automotive has no hotfix. If it's wrong, it's wrong in someone's car. That builds a kind of care that doesn't switch off when the stakes drop: I'd still rather get it right before it ships than clean it up after.",
   },
   {
-    label: 'AI as a Tool and as a Product',
-    desc: "I use it daily and I'm shipping it. Claude Code speeds up boilerplate, migrations, and repetitive work daily, which means real judgment about where it helps and where it quietly makes things worse. Right now: an LLM-powered chat assistant shipping into the production app. Using the tools is table stakes; shipping the product is the part worth talking about.",
+    label: 'I Ship AI, Not Just Use It',
+    desc: "I use AI every day and I ship it and those are two different things. Claude Code handles boilerplate, migrations, and the repetitive parts, which is exactly how I've learned where it helps and where it quietly makes things worse. Right now I'm building an LLM-powered chat assistant into the production app. The interesting problems aren't in the code anymore, they're in knowing what to build and what to trust.",
   },
   {
-    label: 'I Take the Unowned Thing',
-    desc: "Nobody assigned me most of what I'm proudest of. Nobody asked for the Fastlane pipeline; the manual release process was costing the team time every release, so it got fixed. Nobody made the emulator setup a job either — happened to be the intern who'd already dug into the pre-release emulator the year before, wrote the guide, and was still there when the whole org moved onto it.",
+    label: 'Nobody Has to Ask',
+    desc: "Nobody assigned me most of the work I'm proudest of. The Fastlane pipeline wasn't a ticket; the manual release process was a slow and inefficient process every release, so I fixed it. The emulator setup wasn't a job either, until the guide I'd written for myself became the one the whole org used. Whatever the team needs and nobody's grabbed yet is usually where you'll find me.",
   },
 ]
 
@@ -118,15 +113,57 @@ export default function Experience() {
             Where I've<br /><span className="text-accent">built things.</span>
           </h1>
           <p className="max-w-[680px] text-[1.05rem] leading-relaxed text-ink-muted">
-            I started as an intern who could barely get Android Studio to build. Three years
-            and two very different engineering cultures later, I'm the one driving epics,
-            onboarding senior developers, and keeping cross-functional teams aligned. Here's
-            how that happened — role by role.
+            I started as an intern who could barely get Android Studio to build. <br />
+            Three years and two very different engineering cultures later, each opportunity reshaped how I work in ways the other couldn't. <br />
+            <br />Here's how it happened, step by step.
           </p>
         </Reveal>
 
         {/* Timeline */}
         <div>
+          {/* General Motors — the differentiator */}
+          <TimelineNode emphasized>
+            <Reveal className="flex flex-wrap items-center gap-4.5">
+              <img src={GMLogo} alt="General Motors logo" className="w-[60px]" />
+              <div className="min-w-[200px] flex-1">
+                <div className="font-display text-[1.8rem] font-extrabold tracking-tight text-ink">General Motors</div>
+                <div className="text-sm font-semibold text-accent">Software Developer, Infotainment (Co-op)</div>
+              </div>
+              <span className="whitespace-nowrap font-mono text-xs text-ink-dim">2022 &amp; 2023</span>
+            </Reveal>
+            <div className="mt-3">
+              <TechLine>AAOS · AOSP · GM VIP · CAN · ARXML</TechLine>
+            </div>
+            <Reveal delay={0.05} className="mb-7 max-w-[760px] text-[0.95rem] leading-relaxed text-ink-muted">
+              I walked into my first co-op barely able to get Android Studio to build. 
+              GM turned out to be a crash course in engineering at scale. Safety-critical software, pre-release vehicles, and a dozen specialized teams that all had to move in sync. 
+              Across two terms I shipped telephony hard-key controls, passenger-display location services, and CAN bus integration into the infotainment stack learning to write code careful enough to run in a real car.
+            </Reveal>
+            <div className="mb-8 grid grid-cols-1 gap-3.5 md:grid-cols-2 lg:grid-cols-3">
+              {GM_FEATURES.map((f, i) => (
+                <Reveal key={f.name} delay={i * 0.05} className="card flex h-full flex-col transition-[border-color,transform] duration-300 hover:border-line-accent hover:-translate-y-0.5">
+                  <div className="mb-2 text-[0.95rem] font-bold tracking-tight text-ink">{f.name}</div>
+                  <div className="mb-3.5 text-[0.8rem] leading-relaxed text-ink-muted">{f.desc}</div>
+                  <div className="mt-auto flex flex-wrap gap-1.5">
+                    {f.tags.map((tag) => (
+                      <span key={tag} className="chip">{tag}</span>
+                    ))}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={0.1} className="card border-line-accent">
+              <div className="tile-label mb-3 text-accent">Ownership Story</div>
+              <p className="text-[0.9rem] leading-relaxed text-ink-muted">
+                During my first co-op, I spearheaded the setup of GM's next-generation Android
+                emulator a year ahead of the org-wide rollout, writing the configuration guide
+                myself. By the time I came back for my second term, the whole org was starting the shift
+                from physical vehicle rigs to laptop emulators and I'd become the go-to person
+                onboarding and unblocking developers across the org.
+              </p>
+            </Reveal>
+          </TimelineNode>
+
           {/* Jiffy */}
           <TimelineNode>
             <Reveal className="flex flex-wrap items-center gap-4.5">
@@ -141,17 +178,15 @@ export default function Experience() {
               <TechLine>Kotlin · Jetpack Compose · MVVM · 500K+ user app</TechLine>
             </div>
             <Reveal delay={0.05} className="mb-7 max-w-[760px] text-[0.95rem] leading-relaxed text-ink-muted">
-              I joined as an intern who could barely get Android Studio to build. Three years
-              later I drive epics end-to-end and keep a 10-person cross-platform team (iOS,
-              Android, Web) aligned during planning and delivery on a 500K+ user app — the one
-              making sure the team actually enjoys building it together.
+              I came in with two GM co-ops behind me, but a fast-moving consumer app is nothing
+              like a vehicle platform team. Three years later I drive epics and contribute features to our 500K+ user app.
             </Reveal>
             <div className="mb-8 grid grid-cols-1 gap-3.5 md:grid-cols-2 lg:grid-cols-3">
               {JIFFY_FEATURES.map((f, i) => (
-                <Reveal key={f.name} delay={i * 0.05} className="card transition-[border-color,transform] duration-300 hover:border-line-accent hover:-translate-y-0.5">
+                <Reveal key={f.name} delay={i * 0.05} className="card flex h-full flex-col transition-[border-color,transform] duration-300 hover:border-line-accent hover:-translate-y-0.5">
                   <div className="mb-2 text-[0.95rem] font-bold tracking-tight text-ink">{f.name}</div>
                   <div className="mb-3.5 text-[0.8rem] leading-relaxed text-ink-muted">{f.desc}</div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="mt-auto flex flex-wrap gap-1.5">
                     {f.tags.map((tag) => (
                       <span key={tag} className="chip">{tag}</span>
                     ))}
@@ -164,51 +199,6 @@ export default function Experience() {
               {JIFFY_ALSO_IN_THE_MIX.map((item) => (
                 <span key={item} className="chip">{item}</span>
               ))}
-            </div>
-          </TimelineNode>
-
-          {/* General Motors — the differentiator */}
-          <TimelineNode emphasized>
-            <div className="rounded-card border border-line-accent bg-accent-soft/40 p-6 sm:p-7">
-              <Reveal className="flex flex-wrap items-center gap-4.5">
-                <img src={GMLogo} alt="General Motors logo" className="w-[140px]" />
-                <div className="min-w-[200px] flex-1">
-                  <div className="font-display text-[1.8rem] font-extrabold tracking-tight text-ink">General Motors</div>
-                  <div className="text-sm font-semibold text-accent">Software Developer, Infotainment (Co-op)</div>
-                </div>
-                <span className="whitespace-nowrap font-mono text-xs text-ink-dim">2022 &amp; 2023</span>
-              </Reveal>
-              <div className="mt-3">
-                <TechLine>AAOS · AOSP · GM VIP · CAN · ARXML</TechLine>
-              </div>
-              <Reveal delay={0.05} className="mb-7 max-w-[760px] text-[0.95rem] leading-relaxed text-ink-muted">
-                Two co-op terms building Android Automotive OS software for pre-release GM vehicles —
-                jumping from telephony to displays to CAN bus integration, and picking up whatever the
-                team needed next.
-              </Reveal>
-              <div className="mb-8 grid grid-cols-1 gap-3.5 md:grid-cols-2 lg:grid-cols-3">
-                {GM_FEATURES.map((f, i) => (
-                  <Reveal key={f.name} delay={i * 0.05} className="card transition-[border-color,transform] duration-300 hover:border-line-accent hover:-translate-y-0.5">
-                    <div className="mb-2 text-[0.95rem] font-bold tracking-tight text-ink">{f.name}</div>
-                    <div className="mb-3.5 text-[0.8rem] leading-relaxed text-ink-muted">{f.desc}</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {f.tags.map((tag) => (
-                        <span key={tag} className="chip">{tag}</span>
-                      ))}
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-              <Reveal delay={0.1} className="rounded-card border border-line-accent bg-canvas/60 p-6">
-                <div className="tile-label mb-3">Ownership Story</div>
-                <p className="text-[0.9rem] leading-relaxed text-ink-muted">
-                  During my first co-op, I spearheaded the setup of GM's next-generation Android
-                  emulator a year ahead of the org-wide rollout, writing the configuration guide
-                  myself. By the time I came back for my second term, the whole org had shifted
-                  from physical vehicle rigs to laptop emulators — and I'd become the go-to person
-                  onboarding and unblocking developers with years more experience than me.
-                </p>
-              </Reveal>
             </div>
           </TimelineNode>
 
@@ -229,9 +219,12 @@ export default function Experience() {
         {/* What sets me apart */}
         <Reveal className="mb-16 border-t border-line pt-14">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
-            {PILLARS.map((p) => (
+            {PILLARS.map((p, i) => (
               <div key={p.label} className="border-line sm:border-l sm:pl-6 sm:first:border-l-0 sm:first:pl-0">
-                <div className="tile-label">{p.label}</div>
+                <div className="mb-2 font-mono text-xs font-semibold tracking-[0.14em] text-accent">
+                  0{i + 1}
+                </div>
+                <div className="font-display mb-3 text-xl font-bold tracking-tight text-ink">{p.label}</div>
                 <p className="text-sm leading-relaxed text-ink-muted">{p.desc}</p>
               </div>
             ))}

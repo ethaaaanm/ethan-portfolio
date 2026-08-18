@@ -69,7 +69,7 @@ export default function Projects() {
             02 — Projects
           </p>
           <h1 className="font-display mb-5 text-[clamp(2.8rem,6vw,5rem)] font-black leading-none tracking-tight text-ink">
-            Nobody asked me<br /><span className="text-accent">to build any of this.</span>
+            Bringing my ideas<br /><span className="text-accent">to fruition.</span>
           </h1>
           <p className="max-w-[680px] text-[1.05rem] leading-relaxed text-ink-muted">
             Side projects are where I find out what I don't know. Here's what I've built,
