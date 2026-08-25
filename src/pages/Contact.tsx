@@ -1,69 +1,26 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { FaCheck, FaDownload, FaGithub, FaLinkedin, FaRegCopy } from 'react-icons/fa'
+import { FaDownload } from 'react-icons/fa'
 import Reveal from '../components/Reveal'
 
-// TODO: sign up at web3forms.com (free), grab your access key, and paste it here.
-// The key is safe to expose publicly — it's write-only and can't read submissions.
-const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'
+// Safe to expose publicly — it's write-only and can't read submissions.
+const WEB3FORMS_ACCESS_KEY = 'e508aacd-47c9-4336-8dd0-e75cc02e7ebe'
 
 const OPEN_TO = [
   {
     label: 'Full-Time Roles',
-    desc: 'Toronto-based, open to remote or in-person in the GTA, and open to hearing about anything genuinely interesting beyond it.',
+    desc: "Toronto-based and open to remote or hybrid. If there's a strong mission behind it, I'd love to hear about it.",
   },
   {
     label: 'Freelance App Work',
-    desc: 'Android is home turf; full-stack web shipped start to finish too.',
+    desc: "Android is my expertise, but I've also taken full-stack web projects start to finish too.",
   },
   {
     label: 'Projects and Collaborations',
-    desc: 'Nights-and-weekends builds, if a second pair of hands would help.',
+    desc: "Building something nights and weekends? Happy to be an extra pair of hands!",
   },
 ]
-
-const TOPICS = ['A role', 'Freelance work', 'A project idea', 'Something else']
-
-function assembleEmail() {
-  return ['ethanmah238', 'gmail.com'].join('@')
-}
-
-type CopyState = 'idle' | 'copied' | 'failed'
-
-function CopyEmailButton() {
-  const [state, setState] = useState<CopyState>('idle')
-
-  const handleCopy = async () => {
-    const email = assembleEmail()
-    try {
-      await navigator.clipboard.writeText(email)
-      setState('copied')
-    } catch {
-      setState('failed')
-    }
-    setTimeout(() => setState('idle'), 2500)
-  }
-
-  return (
-    <button onClick={handleCopy} className="card flex w-full flex-col items-start text-left">
-      <div className="tile-label">Email</div>
-      <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink">
-        {state === 'copied' && (
-          <>
-            <FaCheck className="text-accent" /> Copied to clipboard
-          </>
-        )}
-        {state === 'failed' && <>Couldn't auto-copy — it's {assembleEmail()}</>}
-        {state === 'idle' && (
-          <>
-            <FaRegCopy /> Copy email address
-          </>
-        )}
-      </span>
-    </button>
-  )
-}
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -113,10 +70,10 @@ export default function Contact() {
             04 — Contact
           </p>
           <h1 className="font-display mb-5 text-[clamp(2.5rem,5.5vw,4.5rem)] font-black leading-none tracking-tight text-ink">
-            Let's build something.
+            Let's work together!!
           </h1>
           <p className="text-[1.05rem] leading-relaxed text-ink-muted">
-            Usually replies within a day or two.
+            Usually reply within a day or two.
           </p>
         </Reveal>
 
@@ -129,41 +86,6 @@ export default function Contact() {
                 <p className="text-sm leading-relaxed text-ink-muted">{o.desc}</p>
               </Reveal>
             ))}
-          </div>
-        </section>
-
-        {/* Reach me */}
-        <section className="mb-16">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <Reveal>
-              <CopyEmailButton />
-            </Reveal>
-            <Reveal delay={0.05}>
-              <a
-                href="https://linkedin.com/in/etthanmah"
-                target="_blank"
-                rel="noreferrer"
-                className="card flex flex-col items-start"
-              >
-                <div className="tile-label">LinkedIn</div>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink">
-                  <FaLinkedin /> linkedin.com/in/etthanmah
-                </span>
-              </a>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <a
-                href="https://github.com/ethaaaanm"
-                target="_blank"
-                rel="noreferrer"
-                className="card flex flex-col items-start"
-              >
-                <div className="tile-label">GitHub</div>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink">
-                  <FaGithub /> github.com/ethaaaanm
-                </span>
-              </a>
-            </Reveal>
           </div>
         </section>
 
@@ -206,19 +128,15 @@ export default function Contact() {
             </div>
 
             <div className="mb-5">
-              <label htmlFor="subject" className="tile-label mb-2 block">What's this about?</label>
-              <select
+              <label htmlFor="subject" className="tile-label mb-2 block">Subject</label>
+              <input
                 id="subject"
                 name="subject"
+                type="text"
                 required
-                defaultValue=""
+                placeholder="What's this about?"
                 className="w-full rounded-[10px] border border-line bg-white/[0.03] px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-line-accent"
-              >
-                <option value="" disabled>Choose one</option>
-                {TOPICS.map((t) => (
-                  <option key={t} value={t} className="bg-surface">{t}</option>
-                ))}
-              </select>
+              />
             </div>
 
             <div className="mb-6">
@@ -241,14 +159,10 @@ export default function Contact() {
               )}
               {status === 'error' && (
                 <span className="text-sm text-ink-muted">
-                  That didn't send. Email me directly and I'll get it either way.
+                  That didn't send. Try again in a bit, or reach out via LinkedIn in the footer.
                 </span>
               )}
             </div>
-
-            <p className="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-ink-dim">
-              Prefer email? The address is one click above.
-            </p>
           </form>
         </Reveal>
 

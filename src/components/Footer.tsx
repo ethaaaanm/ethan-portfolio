@@ -35,9 +35,6 @@ export default function Footer() {
             >
               <FaGithub />
             </a>
-            <Link to="/contact" aria-label="Contact" className="transition-colors hover:text-accent">
-              <MdEmail />
-            </Link>
           </div>
 
           <span aria-hidden="true" className="h-5 w-px bg-line" />

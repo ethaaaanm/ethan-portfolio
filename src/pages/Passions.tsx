@@ -101,11 +101,10 @@ export default function Passions() {
             03 — Passions
           </p>
           <h1 className="font-display mb-5 max-w-[800px] text-[clamp(2.5rem,5.5vw,4.5rem)] font-black leading-[1.02] tracking-tight text-ink">
-            I'm significantly more interesting away from a keyboard.
+            Follow along with my adventures!
           </h1>
           <p className="max-w-[600px] text-[1.05rem] leading-relaxed text-ink-muted">
-            Sports most nights, a run most mornings, and a standing interest in whatever's
-            for dinner.
+            Sports, community, travel, and food are the things that make life worth living!
           </p>
         </Reveal>
 
