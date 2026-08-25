@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { MdEmail } from 'react-icons/md'
 
 export default function Footer() {
   return (
