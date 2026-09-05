@@ -114,7 +114,7 @@ export default function Experience() {
           </h1>
           <p className="max-w-[680px] text-[1.05rem] leading-relaxed text-ink-muted">
             I started as an intern who could barely get Android Studio to build. <br />
-            Three years and two very different engineering cultures later, each opportunity reshaped how I work in ways the other couldn't. <br />
+            Three years and two very different engineering cultures later, each opportunity reshaped how I work. <br />
             <br />Here's how it happened, step by step.
           </p>
         </Reveal>

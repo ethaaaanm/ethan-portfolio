@@ -171,12 +171,12 @@ export default function Contact() {
           <a
             href={`${import.meta.env.BASE_URL}resume-public.pdf`}
             download
-            className="flex items-center justify-between gap-3 rounded-card border border-line-accent bg-accent-soft/30 p-6"
+            className="card flex h-full items-center justify-between gap-3 rounded-card border border-line-accent bg-accent-soft/30 p-6"
           >
             <div>
               <div className="font-display mb-1 text-lg font-bold tracking-tight text-ink">Resume</div>
               <span className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-ink-dim">
-                PDF · Updated July 2026
+                PDF · Updated September 2026
               </span>
             </div>
             <FaDownload className="text-xl text-accent" />

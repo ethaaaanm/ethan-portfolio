@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@500;600&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -57,7 +57,7 @@
   --color-secondary: var(--secondary);
   --color-secondary-soft: var(--secondary-soft);
 
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-display: 'Source Serif 4', Georgia, serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
@@ -128,11 +128,11 @@
   }
 
   .section-label {
-    @apply mb-4 text-xs font-bold uppercase tracking-[0.12em] text-ink-dim;
+    @apply mb-4 text-xs font-bold uppercase tracking-[0.12em] text-ink-muted;
   }
 
   .tile-label {
-    @apply mb-4 font-mono text-[0.7rem] font-medium uppercase tracking-[0.14em] text-ink-dim;
+    @apply mb-4 font-mono text-[0.7rem] font-medium uppercase tracking-[0.14em] text-ink-muted;
   }
 
   .landing-grid {

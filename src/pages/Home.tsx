@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 import Portrait from '../assets/landing_profile.jpg'
 import { FaDownload, FaLongArrowAltRight } from 'react-icons/fa'
 import Reveal from '../components/Reveal'
+import HockeyPhoto from '../assets/vsco_hockey.jpg'
+import KoaCanoePhoto from '../assets/vsco_koa_canoe.jpg'
+import HawaiiTikiPhoto from '../assets/vsco_hawaii_tiki.jpg'
+import AcaiPhoto from '../assets/vsco_acai.jpg'
 
 const STACK = [
   'Kotlin',
@@ -14,18 +18,23 @@ const STACK = [
   'LLM integration',
 ]
 
-function PhotoStripPlaceholder() {
-  const labels = ['Sports', 'Trail', 'Travel', 'Food']
+const PHOTO_STRIP = [
+  { label: 'Sports', src: HockeyPhoto },
+  { label: 'Trail', src: KoaCanoePhoto },
+  { label: 'Travel', src: HawaiiTikiPhoto },
+  { label: 'Food', src: AcaiPhoto },
+]
+
+function PhotoStrip() {
   return (
     <div className="mt-5 grid grid-cols-4 gap-2.5">
-      {labels.map((label) => (
-        <div
+      {PHOTO_STRIP.map(({ label, src }) => (
+        <img
           key={label}
-          className="flex aspect-square items-center justify-center rounded-[10px] border border-dashed border-line text-center text-[0.65rem] font-medium text-ink-dim"
-          style={{ background: 'linear-gradient(160deg, #1a1608 0%, #111111 100%)' }}
-        >
-          {label}
-        </div>
+          src={src}
+          alt={label}
+          className="aspect-square w-full rounded-[10px] border border-line object-cover"
+        />
       ))}
     </div>
   )
@@ -47,18 +56,17 @@ export default function Home() {
               Software Developer · Toronto
             </p>
             <h1 className="font-display mb-5 text-[clamp(2rem,3.4vw,3rem)] font-black leading-[1.05] tracking-tight text-ink">
-              With a foundation in software and business, I build technology that meets real-world needs.
+              I build Android for phones, for cars, and lately for LLMs.
             </h1>
             <p className="max-w-[560px] text-[0.95rem] leading-relaxed text-ink-muted">
-              Android developer with 3+ years of production experience across consumer apps, automotive systems, and LLM-powered assistants.
-            </p>
+              Three years shipping production apps with 500K+ users at Jiffy on Demand, infotainment in Cadillac vehicles, and an internal AI assistant.</p>
           </Reveal>
 
           {/* B — Portrait */}
           <Reveal delay={0.05} className="group relative overflow-hidden rounded-card border border-line-accent [grid-area:portrait]">
             <img src={Portrait} alt="Portrait of Ethan" className="h-full min-h-[260px] w-full object-cover" />
             <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/90 to-transparent px-4 pb-3 pt-8 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              Secret: I've hid an Easter Egg on one of the other pages.
+              Secret: I've hidden an Easter Egg on one of the other pages.
             </div>
           </Reveal>
 
@@ -102,7 +110,7 @@ export default function Home() {
             <Link to="/experience" className="card flex h-full flex-col">
               <div className="tile-label">01 — Experience</div>
               <h2 className="font-display mb-3 text-xl font-bold leading-tight tracking-tight text-ink">
-                The full story behind the resume lines.
+                The story behind the resume lines.
               </h2>
               <p className="mb-6 text-sm leading-relaxed text-ink-muted">
                 What I've shipped, and what broke along the way. <br /> A deep dive into my journey so far
@@ -118,13 +126,13 @@ export default function Home() {
             <Link to="/projects" className="card flex h-full flex-col">
               <div className="tile-label">02 — Projects</div>
               <h2 className="font-display mb-3 text-xl font-bold leading-tight tracking-tight text-ink">
-                From side projects to things I've built because I needed them.              </h2>
+                Side projects and things I've built.              </h2>
               <p className="mb-6 text-sm leading-relaxed text-ink-muted">
                 A league platform and matchmaking algorithm, an educational platformer game, a card game going digital. Usually how I
                 find out what I don't know yet.
               </p>
               <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-                See what I've built <FaLongArrowAltRight className="text-xs" />
+                See what I'm working on <FaLongArrowAltRight className="text-xs" />
               </span>
             </Link>
           </Reveal>
@@ -136,7 +144,7 @@ export default function Home() {
               <h2 className="font-display mb-2 text-xl font-bold leading-tight tracking-tight text-ink">
                 Sports, Travel, and Food
               </h2>
-              <PhotoStripPlaceholder />
+              <PhotoStrip />
               <span className="relative z-10 mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
                 Get to know me <FaLongArrowAltRight className="text-xs" />
               </span>
@@ -147,10 +155,10 @@ export default function Home() {
           <Reveal delay={0.4} className="[grid-area:contact]">
             <Link to="/contact" className="flex h-full flex-col justify-center rounded-card bg-accent p-7 transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-accent-dark">
               <h2 className="font-display mb-2 text-xl font-bold leading-tight tracking-tight text-white">
-                Let's build something.
+                Let's build something together!
               </h2>
               <p className="mb-4 text-sm leading-relaxed text-white/85">
-                Full-time roles, freelance app work, or an idea you can't stop thinking about.
+                Full-time roles, freelance app work, or an idea you can't stop thinking about
               </p>
               <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white">
                 Get in touch <FaLongArrowAltRight className="text-xs" />
@@ -160,14 +168,20 @@ export default function Home() {
 
           {/* J — Resume */}
           <Reveal delay={0.45} className="[grid-area:resume]">
-            <a href={`${import.meta.env.BASE_URL}resume-public.pdf`} download className="card flex h-full items-center justify-between gap-3">
-              <span className="font-mono text-xs uppercase tracking-[0.12em] text-ink-dim">
-                Resume.pdf · Updated July 2026
-              </span>
-              <FaDownload className="text-accent" />
+            <a
+              href={`${import.meta.env.BASE_URL}resume-public.pdf`}
+              download
+              className="card flex h-full items-center justify-between gap-3 rounded-card border border-line-accent bg-accent-soft/30 p-6"
+            >
+              <div>
+                <div className="font-display mb-1 text-lg font-bold tracking-tight text-ink">Resume</div>
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-ink-dim">
+                  PDF · Updated September 2026
+                </span>
+              </div>
+              <FaDownload className="text-xl text-accent" />
             </a>
           </Reveal>
-
         </div>
       </div>
     </div>

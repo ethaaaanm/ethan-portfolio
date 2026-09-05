@@ -3,7 +3,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 import Reveal from '../components/Reveal'
 import Lightbox from '../components/Lightbox'
 import NexusLanding from '../assets/nexus_landing.png'
-import AlgorithmLanding from '../assets/algorithm_landing.png'
+import NexusChampionship from '../assets/nexus_championship_landscape.jpg'
 import FigmaDesign from '../assets/figma_design.png'
 import NexusBanner from '../assets/nexus_banner.jpg'
 import NexusDemo from '../assets/nexus_demo.mp4'
@@ -20,7 +20,7 @@ const DUDS_SCREENSHOTS = [
 const NEXUS_SCREENSHOTS = [
   { src: NexusLanding, alt: 'The Nexus League Landing Page' },
   { src: FigmaDesign, alt: 'Figma Design Page' },
-  { src: AlgorithmLanding, alt: 'The Algorithm Landing Page' },
+  { src: NexusChampionship, alt: 'The Nexus League championship trophy', focus: 'center' as const },
 ]
 
 const NEXUS_STACK = ['React', 'TypeScript', 'Firebase', 'Google Apps Script', 'HTML', 'CSS', 'GitHub Pages']
