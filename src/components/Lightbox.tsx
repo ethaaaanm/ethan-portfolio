@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react'
 
-type LightboxImage = { src?: string; alt: string; caption?: string; focus?: 'top' | 'center' | 'bottom' }
+// Any valid CSS `object-position` value — a keyword ("top", "left"), a
+// keyword pair ("top left"), or percentages ("50% 30%") for finer control.
+type LightboxImage = { src?: string; alt: string; caption?: string; focus?: string }
 
-function Frame({ img, className }: { img: LightboxImage; className: string }) {
+function Frame({
+  img,
+  className,
+  objectPosition,
+}: {
+  img: LightboxImage
+  className: string
+  objectPosition?: string
+}) {
   if (!img.src) {
     return (
       <div
@@ -13,7 +23,15 @@ function Frame({ img, className }: { img: LightboxImage; className: string }) {
       </div>
     )
   }
-  return <img src={img.src} alt={img.alt} loading="lazy" className={className} />
+  return (
+    <img
+      src={img.src}
+      alt={img.alt}
+      loading="lazy"
+      className={className}
+      style={objectPosition ? { objectPosition } : undefined}
+    />
+  )
 }
 
 export default function Lightbox({
@@ -71,9 +89,8 @@ export default function Lightbox({
           >
             <Frame
               img={img}
-              className={`h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] ${
-                img.focus === 'bottom' ? 'object-bottom' : img.focus === 'center' ? 'object-center' : 'object-top'
-              }`}
+              objectPosition={img.focus ?? 'top'}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             />
             <span className="pointer-events-none absolute inset-0 flex items-end bg-black/0 p-3 text-left text-xs font-medium text-transparent transition-colors duration-300 group-hover:bg-black/50 group-hover:text-white">
               {img.caption ?? 'Click to enlarge'}

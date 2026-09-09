@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal'
 import Carousel from '../components/Carousel'
 import Lightbox from '../components/Lightbox'
 import FullGallery from '../components/FullGallery'
+import NexusChampionship from '../assets/nexus_championship_landscape.jpg'
 import HanoiTrainStreet from '../assets/vsco_hanoi_trainstreet.jpg'
 import SoftballHuddle from '../assets/vsco_softball_huddle.jpg'
 import HaLongBay from '../assets/vsco_halongbay.jpg'
@@ -40,154 +41,162 @@ import Skates from '../assets/vsco_skates.jpg'
 import NinhBinhViewpoint from '../assets/vsco_ninhbinh_viewpoint.jpg'
 import MauiSunset from '../assets/vsco_maui_sunset.jpg'
 import TorontoRooftop from '../assets/vsco_toronto_rooftop.jpg'
+import Acai from '../assets/vsco_acai.jpg'
+import HockeyAction from '../assets/vsco_hockey.jpg'
+import Bowls from '../assets/vsco_bowls.jpg'
+import Cabo from '../assets/vsco_cabo.jpg'
+import KoaSleep from '../assets/vsco_koa_sleep.jpg'
+import Ultimate from '../assets/vsco_ultimate.jpeg'
+import Elephants from '../assets/vsco_elephants.jpg'
+import Safari from '../assets/vsco_safari.jpg'
+import Parthenon from "../assets/vsco_parthenon.jpg"
 
 const PICKLEBALL_REEL = [
-  { tag: 'The Crew', src: PickleballSquad, alt: 'Pickleball with the crew', caption: 'Sunday pickleball with the crew — paddles required, skill optional.' },
-  { tag: 'Tournament', src: PickleballAction, alt: 'Mid-rally at a tournament', caption: 'Mid-point at a weekend tournament, fully committed to the dive.' },
-  { tag: 'Champions', src: PickleballTrophy, alt: 'APA Ontario Circuit champions', caption: 'Doubles champions with my dad — the APA Ontario Circuit.' },
+  { tag: 'The Crew', src: PickleballSquad, alt: 'Pickleball with the crew', caption: 'Pickleball in Palmetto Springs, South Carolina.', focus: 'center' },
+  { tag: 'Dod and I', src: PickleballAction, alt: 'Mid-rally with my Dod', caption: 'Playing outdoors with my Dad.', focus: 'center' },
+  { tag: 'Champions', src: PickleballTrophy, alt: 'APA Ontario Circuit champions', caption: '4.0 Doubles champions with my dad at the APA Ontario Circuit.', focus: 'center' },
 ]
 
 const VSCO_URL = 'https://vsco.co/ethaaaanm/gallery'
 
-// Every photo pulled from the VSCO gallery, shown in the "View full gallery" grid.
 const ALL_PHOTOS = [
-  { src: HanoiTrainStreet, alt: "Hanoi's Train Street, Vietnam", caption: "Hanoi's Train Street — the tracks run close enough to touch the shopfronts." },
-  { src: SoftballHuddle, alt: 'Pre-game softball huddle', caption: "Pre-game huddle with the softball squad — that's my name on the back." },
-  { src: HaLongBay, alt: 'Ha Long Bay, Vietnam', caption: 'Ha Long Bay, camera out before the coffee kicked in.' },
-  { src: Pizza, alt: 'Wood-fired pizza', caption: 'Two pizzas, zero regrets.' },
-  { src: CneFellas, alt: 'The CNE at night with friends', caption: 'The CNE at night, CN Tower doing its thing in the background.' },
-  { src: Snowboard, alt: 'Snowboarding with friends', caption: 'First run of the day, still figuring out the goggles.' },
-  { src: GoldenBridge, alt: 'The Golden Bridge, Da Nang, Vietnam', caption: 'The Golden Bridge outside Da Nang — yes, those are giant hands.' },
-  { src: Aurora, alt: 'Aurora over an Ontario street', caption: 'The night the aurora showed up over my neighbourhood, completely uninvited.' },
-  { src: MarliesHockey, alt: 'Marlies hockey game', caption: "Marlies game — hockey doesn't take an offseason around here." },
-  { src: NinhBinhBoat, alt: 'Ninh Binh, Vietnam', caption: "Boat tour through Ninh Binh's limestone karsts — everyone in the obligatory life jacket." },
-  { src: TanDinhChurch, alt: 'Tan Dinh Church, Ho Chi Minh City', caption: 'Tan Dinh Church, Ho Chi Minh City — hard to miss that shade of pink.' },
-  { src: HawaiiTiki, alt: 'Hawaii at sunset', caption: 'Torches lit, sun down, Hawaii doing its best postcard impression.' },
-  { src: PeggysCove, alt: "Peggy's Cove, Nova Scotia", caption: "Peggy's Cove — the lighthouse everyone photographs, for good reason." },
-  { src: PeiCottage, alt: 'Prince Edward Island', caption: 'A cottage on PEI with a view that does not get old.' },
-  { src: NiagaraFalls, alt: 'Niagara Falls', caption: 'Niagara Falls, still impressive on the hundredth visit.' },
-  { src: Apples, alt: 'Apple picking', caption: 'Apple picking on the last good day of fall.' },
-  { src: Beach, alt: 'Paddleboards at dusk', caption: 'Paddleboards racked up at dusk.' },
-  { src: HoiAnBoats, alt: 'Hoi An, Vietnam', caption: 'Boats along the river in Hoi An.' },
-  { src: CoconutForest, alt: 'The coconut forest, Hoi An', caption: 'The coconut forest outside Hoi An, by basket boat.' },
-  { src: Coldplay, alt: 'Coldplay concert', caption: "Coldplay's stadium show, hearts and all." },
-  { src: Concert, alt: 'A concert, mid-set', caption: 'Another night, another stage full of fog.' },
-  { src: Kauai, alt: 'Kalalau lookout, Kauai', caption: 'The Kalalau lookout, Kauai.' },
-  { src: Hearts, alt: 'Concert crowd', caption: 'The crowd, mid-singalong.' },
-  { src: KoaCanoe, alt: 'Koa in a canoe', caption: 'Koa, mid-adventure, unbothered by any of it.' },
-  { src: Husky, alt: 'A husky with a bone', caption: 'Home-turf portrait, mid-treat.' },
-  { src: AuroraStreet, alt: 'Aurora over a residential street', caption: 'The aurora, from the driveway this time.' },
-  { src: Millie, alt: 'Millie the dog', caption: 'Millie, guarding a very important cardboard box.' },
-  { src: MoonlightBeach, alt: 'Friends under a full moon', caption: 'Under a very bright moon, one very questionable idea.' },
-  { src: Palmtrees, alt: 'Palm trees at sunset', caption: 'Palm trees doing their sunset thing.' },
-  { src: Shoreline, alt: 'A beach at golden hour', caption: "Golden hour on a beach I can't place anymore." },
-  { src: Skates, alt: 'Skates on a frozen pond', caption: 'A frozen pond, and a heart etched in the ice by someone.' },
-  { src: NinhBinhViewpoint, alt: 'Ninh Binh viewpoint, Vietnam', caption: "The view after climbing Ninh Binh's 500 steps." },
-  { src: MauiSunset, alt: 'Sunset in Hawaii', caption: 'Watching the sun go down, Hawaii.' },
-  { src: TorontoRooftop, alt: 'A Toronto rooftop at sunset', caption: 'A Toronto rooftop, right at sunset.' },
+  { src: HanoiTrainStreet, alt: "Hanoi's Train Street, Vietnam", caption: "Hanoi's Train Street — the tracks run close enough to touch the shopfronts.", focus: 'center' },
+  { src: SoftballHuddle, alt: 'Pre-game softball huddle', caption: "Pre-game huddle with the softball squad — that's my name on the back.", focus: 'center' },
+  { src: HaLongBay, alt: 'Ha Long Bay, Vietnam', caption: 'Ha Long Bay, camera out before the coffee kicked in.', focus: 'center' },
+  { src: Pizza, alt: 'Wood-fired pizza', caption: 'Two pizzas, zero regrets.', focus: 'top' },
+  { src: CneFellas, alt: 'The CNE at night with friends', caption: 'The CNE at night, CN Tower doing its thing in the background.', focus: 'bottom' },
+  { src: Snowboard, alt: 'Snowboarding with friends', caption: 'First run of the day, still figuring out the goggles.', focus: 'bottom' },
+  { src: GoldenBridge, alt: 'The Golden Bridge, Da Nang, Vietnam', caption: 'The Golden Bridge outside Da Nang — yes, those are giant hands.', focus: 'center' },
+  { src: Aurora, alt: 'Aurora over an Ontario street', caption: 'The night the aurora showed up over my neighbourhood, completely uninvited.', focus: 'top' },
+  { src: MarliesHockey, alt: 'Marlies hockey game', caption: "Marlies game — hockey doesn't take an offseason around here.", focus: 'center' },
+  { src: NinhBinhBoat, alt: 'Ninh Binh, Vietnam', caption: "Boat tour through Ninh Binh's limestone karsts — everyone in the obligatory life jacket.", focus: 'bottom' },
+  { src: TanDinhChurch, alt: 'Tan Dinh Church, Ho Chi Minh City', caption: 'Tan Dinh Church, Ho Chi Minh City — hard to miss that shade of pink.', focus: 'center' },
+  { src: HawaiiTiki, alt: 'Hawaii at sunset', caption: 'Torches lit, sun down, Hawaii doing its best postcard impression.', focus: 'top' },
+  { src: PeggysCove, alt: "Peggy's Cove, Nova Scotia", caption: "Peggy's Cove — the lighthouse everyone photographs, for good reason.", focus: 'left' },
+  { src: PeiCottage, alt: 'Prince Edward Island', caption: 'A cottage on PEI with a view that does not get old.', focus: 'center' },
+  { src: NiagaraFalls, alt: 'Niagara Falls', caption: 'Niagara Falls, still impressive on the hundredth visit.', focus: 'center' },
+  { src: Apples, alt: 'Apple picking', caption: 'Apple picking on the last good day of fall.', focus: 'bottom' },
+  { src: Beach, alt: 'Paddleboards at dusk', caption: 'Paddleboards racked up at dusk.', focus: 'bottom' },
+  { src: HoiAnBoats, alt: 'Hoi An, Vietnam', caption: 'Boats along the river in Hoi An.', focus: 'center' },
+  { src: CoconutForest, alt: 'The coconut forest, Hoi An', caption: 'The coconut forest outside Hoi An, by basket boat.', focus: 'center' },
+  { src: Coldplay, alt: 'Coldplay concert', caption: "Coldplay's stadium show, hearts and all.", focus: 'center' },
+  { src: Concert, alt: 'A concert, mid-set', caption: 'Another night, another stage full of fog.', focus: 'center' },
+  { src: Kauai, alt: 'Kalalau lookout, Kauai', caption: 'The Kalalau lookout, Kauai.', focus: 'center' },
+  { src: Hearts, alt: 'Concert crowd', caption: 'The crowd, mid-singalong.', focus: 'center' },
+  { src: KoaCanoe, alt: 'Koa in a canoe', caption: 'Koa, mid-adventure, unbothered by any of it.', focus: 'center' },
+  { src: Husky, alt: 'A husky with a bone', caption: 'Home-turf portrait, mid-treat.', focus: 'center' },
+  { src: AuroraStreet, alt: 'Aurora over a residential street', caption: 'The aurora, from the driveway this time.', focus: 'top' },
+  { src: Millie, alt: 'Millie the dog', caption: 'Millie, guarding a very important cardboard box.', focus: 'center' },
+  { src: MoonlightBeach, alt: 'Friends under a full moon', caption: 'Under a very bright moon, one very questionable idea.', focus: 'bottom' },
+  { src: Palmtrees, alt: 'Palm trees at sunset', caption: 'Palm trees doing their sunset thing.', focus: 'center' },
+  { src: Shoreline, alt: 'A beach at golden hour', caption: "Golden hour on a beach I can't place anymore.", focus: 'center' },
+  { src: Skates, alt: 'Skates on a frozen pond', caption: 'A frozen pond, and a heart etched in the ice by someone.', focus: 'center' },
+  { src: NinhBinhViewpoint, alt: 'Ninh Binh viewpoint, Vietnam', caption: "The view after climbing Ninh Binh's 500 steps.", focus: 'center' },
+  { src: MauiSunset, alt: 'Sunset in Hawaii', caption: 'Watching the sun go down, Hawaii.', focus: 'center' },
+  { src: TorontoRooftop, alt: 'A Toronto rooftop at sunset', caption: 'A Toronto rooftop, right at sunset.', focus: 'center' },
+  { src: Acai, alt: 'Acai bowls', caption: "Three acai bowls, because I couldn't decide on toppings.", focus: 'center' },
+  { src: HockeyAction, alt: 'Hockey, mid-shift', caption: 'Grinders hockey, mid-shift.', focus: 'center' },
+  { src: Bowls, alt: 'Poke and salad bowls', caption: 'The kind of order that takes longer to photograph than eat.', focus: 'center' },
+  { src: Cabo, alt: 'ATVing in Cabo, Mexico', caption: 'Cabo, kicking up more dust than the tour guide would like.', focus: 'bottom' },
+  { src: KoaSleep, alt: 'Koa, backseat driver', caption: 'Koa, supervising the drive from the back seat.', focus: 'center' },
 ]
 
 const HERO_REEL = [
   {
     tag: 'Photography',
-    src: HanoiTrainStreet,
-    alt: "Hanoi's Train Street, Vietnam",
-    caption: "Hanoi's Train Street — the tracks run close enough to touch the shopfronts.",
-  },
-  {
-    tag: 'Sports',
-    src: SoftballHuddle,
-    alt: 'Pre-game softball huddle',
-    caption: 'Pre-game huddle with the softball squad — that\'s my name on the back.',
-  },
-  {
-    tag: 'Travel',
-    src: HaLongBay,
-    alt: 'Ha Long Bay, Vietnam',
-    caption: 'Ha Long Bay, camera out before the coffee kicked in.',
-  },
-  {
-    tag: 'Food',
-    src: Pizza,
-    alt: 'Wood-fired pizza',
-    caption: 'Two pizzas, zero regrets.',
+    src: Aurora,
+    alt: 'Aurora over an Ontario street',
+    caption: 'The night the aurora borealis showed up over my neighbourhood.',
+    focus: 'top 40%',
   },
   {
     tag: 'Friends & Family',
     src: CneFellas,
-    alt: 'The CNE at night with friends',
-    caption: 'The CNE at night, CN Tower doing its thing in the background.',
+    alt: 'Friends at the CNE',
+    caption: 'The fellas at the CNE',
+    focus: 'center 60%',
   },
   {
-    tag: 'Sports',
-    src: Snowboard,
-    alt: 'Snowboarding with friends',
-    caption: 'First run of the day, still figuring out the goggles.',
+    tag: 'Travel',
+    src: Shoreline,
+    alt: 'Shoreline, Hawaii',
+    caption: 'Shoreline in Hawaii, my second home',
+    focus: 'center',
   },
   {
     tag: 'Travel',
     src: GoldenBridge,
     alt: 'The Golden Bridge, Da Nang, Vietnam',
-    caption: 'The Golden Bridge outside Da Nang — yes, those are giant hands.',
+    caption: 'The Golden Bridge in Da Nang',
+    focus: 'center 40%',
   },
   {
     tag: 'Photography',
-    src: Aurora,
-    alt: 'Aurora over an Ontario street',
-    caption: 'The night the aurora showed up over my neighbourhood, completely uninvited.',
-  },
-]
-
-const SPORTS_SUPPORTING = [
-  {
-    label: 'Softball · Basketball · Volleyball · Frisbee',
-    desc: 'Mostly through the Nexus league and recreationally. I\'m not the best player but I always shows up.',
+    src: HanoiTrainStreet,
+    alt: "Hanoi's Train Street, Vietnam",
+    caption: "Hanoi's Train Street",
+    focus: 'center 60%',
   },
   {
-    label: 'Hockey',
-    desc: 'As Canadian as it gets. I grew up learning to skate and play hockey',
+    tag: 'Travel',
+    src: HoiAnBoats,
+    alt: 'Boats in Hoi An, Vietnam',
+    caption: 'The boats in Hoi An, Vietnam.',
+    focus: 'center 40%',
   },
   {
-    label: 'Running',
-    desc: 'From 10k to half-marathon to working my way to a full marathon. I like the challenge and the mental clarity it brings.',
+    tag: 'Sports',
+    src: Hearts,
+    alt: 'Hearts from a Coldplay concert',
+    caption: 'All my love, Coldplay',
+    focus: 'center',
+  },
+  {
+    tag: 'Travel',
+    src: Elephants,
+    alt: 'Elephants in Kenya',
+    caption: 'Elephants in Kenya',
+    focus: 'bottom',
   },
 ]
 
 const SPORTS_GALLERY = [
-  { src: SoftballHuddle, alt: 'Softball', caption: 'Weekly, between two leagues — one of which I run.' },
-  { src: MarliesHockey, alt: 'Hockey', caption: "Marlies game — hockey doesn't take an offseason around here." },
-  { alt: 'Nexus league', caption: 'The multi-sport league I built the software for.' },
+  { src: SoftballHuddle, alt: 'Softball', caption: 'TCAC United', focus: 'center' },
+  { src: HockeyAction, alt: 'Hockey', caption: 'Dod and I', focus: 'center' },
+  { src: MarliesHockey, alt: 'Marlies game', caption: "Marlies championship game", focus: 'left' },
+  { src: Snowboard, alt: 'Snowboarding', caption: 'Mont Tremblant', focus: 'bottom' },
+  { src: Skates, alt: 'Ice skating', caption: 'Frozen pond in Kingston', focus: 'center' },
+  { src: Ultimate, alt: 'Frisbee', caption: 'Ultimate Frisbee', focus: 'center 85%' },
 ]
 
-const COMMUNITY = [
+const MISSIONS = [
   {
-    label: 'Commissioner',
-    desc: "Nexus Sports League. Runs it, wrote the software for it — when the standings are wrong there's exactly one person to blame.",
+    label: 'Bolivia',
+    desc: 'Helped build orphanages and delivered gifts and resources to kids who had gone without.',
   },
   {
-    label: 'Volunteer',
-    desc: "A discussion program at church, built around asking hard questions in a room where nobody's expected to have the answer already. Made for a substantially better listener, which has been quietly useful in code reviews.",
+    label: 'China',
+    desc: "Taught English and ran a summer camp in remote villages — turns out a soccer ball doesn't need a translator.",
   },
   {
-    label: 'In Progress',
-    desc: 'Pickleball coaching certification.',
+    label: 'Kenya',
+    desc: 'Provided medical care to villages with limited access to it otherwise.',
   },
 ]
 
 const TRAVEL_GALLERY = [
-  { src: NinhBinhBoat, alt: 'Ninh Binh, Vietnam', caption: "Boat tour through Ninh Binh's limestone karsts — everyone in the obligatory life jacket." },
-  { src: TanDinhChurch, alt: 'Tan Dinh Church, Ho Chi Minh City', caption: 'Tan Dinh Church, Ho Chi Minh City — hard to miss that shade of pink.' },
-  { src: HawaiiTiki, alt: 'Hawaii at sunset', caption: 'Torches lit, sun down, Hawaii doing its best postcard impression.' },
-  { src: PeggysCove, alt: "Peggy's Cove, Nova Scotia", caption: "Peggy's Cove — the lighthouse everyone photographs, for good reason." },
-  { src: PeiCottage, alt: 'Prince Edward Island', caption: 'A cottage on PEI with a view that does not get old.' },
-  { src: NiagaraFalls, alt: 'Niagara Falls', caption: 'Niagara Falls, still impressive on the hundredth visit.' },
+  { tag: 'Vietnam', src: NinhBinhBoat, alt: 'Ninh Binh, Vietnam', caption: 'Boat tour through Ninh Binh.', focus: 'center' },
+  { tag: 'Kenya', src: Safari, alt: 'Nairobi, Kenya', caption: 'Safari in Nairobi, Kenya.', focus: 'center' },
+  { tag: 'Hawaii', src: HawaiiTiki, alt: 'Hawaii at sunset', caption: 'Maui, Hawaii.', focus: 'top' },
+  { tag: 'Nova Scotia', src: PeggysCove, alt: "Peggy's Cove, Nova Scotia", caption: "Peggy's Cove, Nova Scotia.", focus: 'left' },
+  { tag: 'Mexico', src: Cabo, alt: 'ATVing in Cabo, Mexico', caption: 'ATVing in Cabo, Mexico.', focus: 'bottom' },
+  { tag: 'Greece', src: Parthenon, alt: 'The Parthenon, Greece', caption: 'The Parthenon, Greece.', focus: 'left' },
 ]
 
 const FOOD_GALLERY = [
-  { src: Pizza, alt: 'Wood-fired pizza', caption: 'Two pizzas, zero regrets.' },
-  { alt: 'Ramen', caption: 'Late-night ramen, the correct order of operations.' },
-  { alt: 'Brunch', caption: 'A brunch that ran long, on purpose.' },
-  { alt: 'Home-cooked', caption: 'Home-cooked, which happens more often than people expect.' },
+  { src: Pizza, alt: 'Wood-fired pizza', caption: 'Piano Piano', focus: 'top' },
+  { src: Acai, alt: 'Acai bowls', caption: "Maui Acai", focus: 'center' },
+  { src: Bowls, alt: 'Poke and salad bowls', caption: 'Poke and Salad Bowls', focus: 'center' },
 ]
 
 export default function Passions() {
@@ -247,80 +256,86 @@ export default function Passions() {
             </div>
           </Reveal>
 
-          <Reveal className="border-t border-line pt-10">
-            <h3 className="font-display mb-6 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-              Sports
-            </h3>
-
-            <div className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {SPORTS_SUPPORTING.map((s, i) => (
-                <Reveal key={s.label} delay={i * 0.05}>
-                  <div className="tile-label whitespace-nowrap text-[0.75rem] tracking-normal">{s.label}</div>
-                  <p className="text-sm leading-relaxed text-ink-muted">{s.desc}</p>
-                </Reveal>
-              ))}
+          {/* The Nexus League — full-bleed standout */}
+          <Reveal className="-mx-4 border-t border-line pt-10 sm:-mx-8">
+            <div className="relative flex min-h-[420px] items-end overflow-hidden sm:min-h-[520px]">
+              <img
+                src={NexusChampionship}
+                alt="The Nexus League celebrating a championship"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: '35% 35%', transform: 'scaleX(-1)' }}
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+              <div className="relative z-10 px-4 pb-12 sm:px-8 sm:pb-16">
+                <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
+                  The Nexus League · Est. 2024
+                </p>
+                <h2 className="font-display mb-5 max-w-[700px] text-[clamp(2rem,4.5vw,3.5rem)] font-black leading-[1.05] tracking-tight text-ink">
+                  Iron sharpens iron.
+                </h2>
+                <p className="max-w-[620px] text-base leading-relaxed text-ink-muted">
+                  The Nexus League is a Christian multi-sport rec league at its core, and
+                  softball, hockey, basketball, and frisbee are mostly just the excuse to get
+                  everyone together every week. The standings matter a lot less than the
+                  community and culture putting Proverbs 27:17 in practice, week after week. We
+                  show up for each other as brothers, pushing one another to grow, on the
+                  field and off it.
+                </p>
+              </div>
             </div>
+          </Reveal>
 
+          <Reveal className="mt-16">
+            <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
+              Sports
+            </p>
+            <h3 className="font-display mb-4 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+              Ways I stay active and connected with friends and family.
+            </h3>
             <Lightbox aspect="aspect-square" images={SPORTS_GALLERY} />
           </Reveal>
         </section>
 
-        {/* The run — full-bleed standout */}
-        <Reveal className="mb-28 -mx-4 sm:-mx-8">
-          <div
-            className="relative flex min-h-[420px] items-end overflow-hidden sm:min-h-[520px]"
-            style={{ background: 'linear-gradient(160deg, #1a1608 0%, #111111 100%)' }}
-          >
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="relative z-10 px-4 pb-12 sm:px-8 sm:pb-16">
-              <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
-                42.2 km · Solo · Summer 2026
-              </p>
-              <h2 className="font-display mb-5 max-w-[700px] text-[clamp(2rem,4.5vw,3.5rem)] font-black leading-[1.05] tracking-tight text-ink">
-                Running a marathon nobody's organizing.
-              </h2>
-              <p className="max-w-[620px] text-base leading-relaxed text-ink-muted">
-                No race, no bib, no crowd — a self-mapped route through Toronto's ravine
-                trail network, with friends stationed along the way with water and a ride
-                home at the end. I like this for the same reason as the projects with
-                source code: nobody asked for it, it only happens if the work gets done,
-                and there's no version of finishing it that isn't earned.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Community */}
-        <section className="mb-28">
+        {/* Missions */}
+        <Reveal className="mb-28">
+          <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
+            Missions
+          </p>
+          <h2 className="font-display mb-4 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+            Time, effort, or money — whatever's needed.
+          </h2>
+          <p className="mb-8 max-w-[620px] text-base leading-relaxed text-ink-muted">
+            Giving back to my community isn't optional in my book — it's just a matter
+            of which currency fits the season. Three mission trips have been the
+            clearest version of that pull to serve so far.
+          </p>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {COMMUNITY.map((c, i) => (
-              <Reveal key={c.label} delay={i * 0.05}>
-                <div className="tile-label">{c.label}</div>
-                <p className="text-sm leading-relaxed text-ink-muted">{c.desc}</p>
+            {MISSIONS.map((m, i) => (
+              <Reveal key={m.label} delay={i * 0.05}>
+                <div className="tile-label">{m.label}</div>
+                <p className="text-sm leading-relaxed text-ink-muted">{m.desc}</p>
               </Reveal>
             ))}
           </div>
-        </section>
+        </Reveal>
 
         {/* Places */}
         <Reveal className="mb-28">
           <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">Travel</p>
           <h2 className="font-display mb-6 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-            Wherever I can get to.
+            Places I've explored!
           </h2>
           <Lightbox aspect="aspect-square" images={TRAVEL_GALLERY} />
-        </Reveal>
+         </Reveal>
 
         {/* Food */}
         <Reveal className="mb-28">
           <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">Food</p>
           <h2 className="font-display mb-4 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-            I plan my weekends around meals.
+            I plan my days around meals. 
           </h2>
           <p className="mb-8 max-w-[560px] text-base leading-relaxed text-ink-muted">
-            Toronto is an unfairly good city for this and I've made it my business to
-            take advantage. If you want a recommendation I have one. If you want an
-            argument about the best place for a specific dish, I have that too.
+            It would be an understatement to call me a foodie
           </p>
           <Lightbox aspect="aspect-square" images={FOOD_GALLERY} />
         </Reveal>

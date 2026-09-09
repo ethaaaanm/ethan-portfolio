@@ -6,6 +6,10 @@ export type CarouselSlide = {
   alt: string
   tag: string
   caption: string
+  // Any valid CSS `object-position` value ("top", "center 30%", "65% 40%", …) —
+  // tunes where the crop is anchored so portrait photos in this wide slide
+  // don't just show empty sky/background above the actual subject.
+  focus?: string
 }
 
 const AUTOPLAY_MS = 4500
@@ -72,7 +76,12 @@ export default function Carousel({
           className="absolute inset-0 cursor-grab active:cursor-grabbing"
         >
           {slide.src ? (
-            <img src={slide.src} alt={slide.alt} className="pointer-events-none h-full w-full object-cover" />
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              className="pointer-events-none h-full w-full object-cover"
+              style={{ objectPosition: slide.focus ?? 'center' }}
+            />
           ) : (
             <div
               className="flex h-full w-full items-center justify-center px-6 text-center text-sm font-medium text-ink-dim"
@@ -108,7 +117,7 @@ export default function Carousel({
         type="button"
         aria-label="Previous photo"
         onClick={() => go(-1)}
-        className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-lg text-white opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100"
+        className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/50 text-3xl leading-none text-white opacity-90 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100 sm:h-10 sm:w-10"
       >
         ‹
       </button>
@@ -116,7 +125,7 @@ export default function Carousel({
         type="button"
         aria-label="Next photo"
         onClick={() => go(1)}
-        className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-lg text-white opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100"
+        className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/50 text-3xl leading-none text-white opacity-90 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100 sm:h-10 sm:w-10"
       >
         ›
       </button>
