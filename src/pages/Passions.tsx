@@ -167,7 +167,7 @@ const HERO_REEL = [
     focus: 'center 40%',
   },
   {
-    tag: 'Sports',
+    tag: 'Concert',
     src: Hearts,
     alt: 'Hearts from a Coldplay concert',
     caption: 'All my love, Coldplay',
@@ -268,7 +268,7 @@ export default function Passions() {
                 Pickleball has been my most recent obsession!!
                 It's a game that combines the best parts of racket sports like tennis and ping pong into a sport that has an easy barrier to entry but hard to master.
                 <br /> <br />
-                I started playing pickleball after my parents got incredibly addicted and I've been hooked every since!
+                I started playing pickleball after my parents got incredibly addicted and I've been hooked ever since!
                 It's a great way to stay active, meet new people, and have fun. I love the community aspect and the ability to play with all ages and skill levels.
                 It's become such an important aspect of my life and community as I continue to make lasting memories with many of my friends and family through the sport!
               </p>
@@ -348,16 +348,16 @@ export default function Passions() {
             Places I've explored!
           </h2>
           <Lightbox aspect="aspect-square" images={TRAVEL_GALLERY} />
-         </Reveal>
+        </Reveal>
 
         {/* Food */}
         <Reveal className="mb-28">
           <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">Food</p>
           <h2 className="font-display mb-4 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-            I plan my days around meals. 
+            I plan my days around meals.
           </h2>
           <p className="mb-8 max-w-[560px] text-base leading-relaxed text-ink-muted">
-            It would be an understatement to call me a foodie
+            It would be an understatement to call me a foodie.
           </p>
           <Lightbox aspect="aspect-square" images={FOOD_GALLERY} />
         </Reveal>

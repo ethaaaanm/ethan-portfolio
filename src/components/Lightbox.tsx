@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 // Any valid CSS `object-position` value — a keyword ("top", "left"), a
 // keyword pair ("top left"), or percentages ("50% 30%") for finer control.
-type LightboxImage = { src?: string; alt: string; caption?: string; focus?: string }
+type LightboxImage = { src?: string; alt: string; caption?: string; focus?: string; tag?: string }
 
 function Frame({
   img,
@@ -92,6 +92,11 @@ export default function Lightbox({
               objectPosition={img.focus ?? 'top'}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             />
+            {img.tag && (
+              <span className="pointer-events-none absolute left-2 top-2 rounded-full border border-white/20 bg-black/50 px-2 py-0.5 font-mono text-[0.6rem] font-medium uppercase tracking-[0.1em] text-white backdrop-blur-sm">
+                {img.tag}
+              </span>
+            )}
             <span className="pointer-events-none absolute inset-0 flex items-end bg-black/0 p-3 text-left text-xs font-medium text-transparent transition-colors duration-300 group-hover:bg-black/50 group-hover:text-white">
               {img.caption ?? 'Click to enlarge'}
             </span>

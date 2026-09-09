@@ -52,7 +52,7 @@ export default function Home() {
               className="pointer-events-none absolute -bottom-24 -right-24 h-[450px] w-[450px] rounded-full"
               style={{ background: 'radial-gradient(circle, var(--accent-glow) 0%, transparent 65%)' }}
             />
-            <p className="mb-4 font-mono text-s font-medium uppercase tracking-[0.14em] text-accent">
+            <p className="mb-4 font-mono text-sm font-medium uppercase tracking-[0.14em] text-accent">
               Software Developer · Toronto
             </p>
             <h1 className="font-display mb-5 text-[clamp(2rem,3.4vw,3rem)] font-black leading-[1.05] tracking-tight text-ink">
@@ -126,7 +126,8 @@ export default function Home() {
             <Link to="/projects" className="card flex h-full flex-col">
               <div className="tile-label">02 — Projects</div>
               <h2 className="font-display mb-3 text-xl font-bold leading-tight tracking-tight text-ink">
-                Side projects and things I've built.              </h2>
+                Side projects and things I've built.
+              </h2>
               <p className="mb-6 text-sm leading-relaxed text-ink-muted">
                 A league platform and matchmaking algorithm, an educational platformer game, a card game going digital. Usually how I
                 find out what I don't know yet.

@@ -20,7 +20,7 @@ const DUDS_SCREENSHOTS = [
 const NEXUS_SCREENSHOTS = [
   { src: NexusLanding, alt: 'The Nexus League Landing Page' },
   { src: FigmaDesign, alt: 'Figma Design Page' },
-  { src: NexusChampionship, alt: 'The Nexus League championship trophy', focus: 'center' as const },
+  { src: NexusChampionship, alt: 'The Nexus League championship trophy', caption: 'Season one, in the books.', focus: 'center' as const },
 ]
 
 const NEXUS_STACK = ['React', 'TypeScript', 'Firebase', 'Google Apps Script', 'HTML', 'CSS', 'GitHub Pages']
@@ -235,8 +235,8 @@ export default function Projects() {
               means the interesting problems aren't so much about the technical but rather the
               translation. Physical games carry rules in the players' heads and enforce them through social
               pressure. Digital games lack the social aspect, so the social implications need to be expressed in other ways.
-              
-              <br/> <br/> The goal is to make the digital version feel like the physical one, while also taking advantage of the digital medium to enhance the experience.
+              <br /> <br />
+              The goal is to make the digital version feel like the physical one, while also taking advantage of the digital medium to enhance the experience.
             </p>
             <Lightbox images={DUDS_SCREENSHOTS} />
           </div>
