@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { SiVsco } from 'react-icons/si'
 
 export default function Footer() {
   return (
@@ -33,6 +34,15 @@ export default function Footer() {
               className="transition-colors hover:text-accent"
             >
               <FaGithub />
+            </a>
+            <a
+              href="https://vsco.co/ethaaaanm/gallery"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="VSCO"
+              className="transition-colors hover:text-accent"
+            >
+              <SiVsco />
             </a>
           </div>
 

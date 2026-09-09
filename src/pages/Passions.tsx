@@ -31,7 +31,7 @@ import Concert from '../assets/vsco_concert.jpg'
 import Kauai from '../assets/vsco_kauai.jpg'
 import Hearts from '../assets/vsco_hearts.jpg'
 import KoaCanoe from '../assets/vsco_koa_canoe.jpg'
-import Husky from '../assets/vsco_husky.jpg'
+import Leilani from '../assets/vsco_husky.jpg'
 import AuroraStreet from '../assets/vsco_aurora_street.jpg'
 import Millie from '../assets/vsco_millie.jpg'
 import MoonlightBeach from '../assets/vsco_moonlight_beach.jpg'
@@ -49,7 +49,13 @@ import KoaSleep from '../assets/vsco_koa_sleep.jpg'
 import Ultimate from '../assets/vsco_ultimate.jpeg'
 import Elephants from '../assets/vsco_elephants.jpg'
 import Safari from '../assets/vsco_safari.jpg'
-import Parthenon from "../assets/vsco_parthenon.jpg"
+import Parthenon from '../assets/vsco_parthenon.jpg'
+import Posters from '../assets/vsco_ninhbinh_posters.jpg'
+import Queens from '../assets/vsco_queens.jpg'
+import Raptors from '../assets/vsco_raptors.jpg'
+import Scaddabush from '../assets/vsco_scaddabush.jpg'
+import CherryBlossoms from '../assets/vsco_cherryblossom.jpg'
+import Pumpkin from "../assets/vsco_pumpkin.jpg"
 
 const PICKLEBALL_REEL = [
   { tag: 'The Crew', src: PickleballSquad, alt: 'Pickleball with the crew', caption: 'Pickleball in Palmetto Springs, South Carolina.', focus: 'center' },
@@ -59,46 +65,62 @@ const PICKLEBALL_REEL = [
 
 const VSCO_URL = 'https://vsco.co/ethaaaanm/gallery'
 
+// Deliberately interleaved (roughly alternating Travel with a mix of Sports/Food/
+// Pets/Concert photos) so the full-gallery grid doesn't read as blocks of the same
+// category in a row — see conversation for why.
 const ALL_PHOTOS = [
-  { src: HanoiTrainStreet, alt: "Hanoi's Train Street, Vietnam", caption: "Hanoi's Train Street — the tracks run close enough to touch the shopfronts.", focus: 'center' },
-  { src: SoftballHuddle, alt: 'Pre-game softball huddle', caption: "Pre-game huddle with the softball squad — that's my name on the back.", focus: 'center' },
-  { src: HaLongBay, alt: 'Ha Long Bay, Vietnam', caption: 'Ha Long Bay, camera out before the coffee kicked in.', focus: 'center' },
-  { src: Pizza, alt: 'Wood-fired pizza', caption: 'Two pizzas, zero regrets.', focus: 'top' },
-  { src: CneFellas, alt: 'The CNE at night with friends', caption: 'The CNE at night, CN Tower doing its thing in the background.', focus: 'bottom' },
-  { src: Snowboard, alt: 'Snowboarding with friends', caption: 'First run of the day, still figuring out the goggles.', focus: 'bottom' },
-  { src: GoldenBridge, alt: 'The Golden Bridge, Da Nang, Vietnam', caption: 'The Golden Bridge outside Da Nang — yes, those are giant hands.', focus: 'center' },
-  { src: Aurora, alt: 'Aurora over an Ontario street', caption: 'The night the aurora showed up over my neighbourhood, completely uninvited.', focus: 'top' },
-  { src: MarliesHockey, alt: 'Marlies hockey game', caption: "Marlies game — hockey doesn't take an offseason around here.", focus: 'center' },
-  { src: NinhBinhBoat, alt: 'Ninh Binh, Vietnam', caption: "Boat tour through Ninh Binh's limestone karsts — everyone in the obligatory life jacket.", focus: 'bottom' },
-  { src: TanDinhChurch, alt: 'Tan Dinh Church, Ho Chi Minh City', caption: 'Tan Dinh Church, Ho Chi Minh City — hard to miss that shade of pink.', focus: 'center' },
-  { src: HawaiiTiki, alt: 'Hawaii at sunset', caption: 'Torches lit, sun down, Hawaii doing its best postcard impression.', focus: 'top' },
-  { src: PeggysCove, alt: "Peggy's Cove, Nova Scotia", caption: "Peggy's Cove — the lighthouse everyone photographs, for good reason.", focus: 'left' },
-  { src: PeiCottage, alt: 'Prince Edward Island', caption: 'A cottage on PEI with a view that does not get old.', focus: 'center' },
-  { src: NiagaraFalls, alt: 'Niagara Falls', caption: 'Niagara Falls, still impressive on the hundredth visit.', focus: 'center' },
-  { src: Apples, alt: 'Apple picking', caption: 'Apple picking on the last good day of fall.', focus: 'bottom' },
-  { src: Beach, alt: 'Paddleboards at dusk', caption: 'Paddleboards racked up at dusk.', focus: 'bottom' },
-  { src: HoiAnBoats, alt: 'Hoi An, Vietnam', caption: 'Boats along the river in Hoi An.', focus: 'center' },
-  { src: CoconutForest, alt: 'The coconut forest, Hoi An', caption: 'The coconut forest outside Hoi An, by basket boat.', focus: 'center' },
-  { src: Coldplay, alt: 'Coldplay concert', caption: "Coldplay's stadium show, hearts and all.", focus: 'center' },
-  { src: Concert, alt: 'A concert, mid-set', caption: 'Another night, another stage full of fog.', focus: 'center' },
+  { src: HaLongBay, alt: 'Ha Long Bay, Vietnam', caption: 'Ha Long Bay, Vietnam', focus: 'center' },
+  { src: Raptors, alt: 'Toronto Raptors', caption: 'Toronto Raptors', focus: 'center' },
+  { src: CherryBlossoms, alt: 'Cherry blossoms in full bloom', caption: 'Cherry blossoms in Japan.', focus: 'center' },
+  { src: Scaddabush, alt: 'Scaddabush restaurant', caption: 'Scaddabush.', focus: 'center' },
+  { src: PeiCottage, alt: 'Prince Edward Island', caption: 'Cottage in PEI', focus: 'center' },
+  { src: SoftballHuddle, alt: 'Softball', caption: 'TCAC United', focus: 'center' },
+  { src: NiagaraFalls, alt: 'Niagara Falls', caption: 'Niagara Falls', focus: 'left' },
+  { src: KoaCanoe, alt: 'Koa in a canoe', caption: 'Koa loving canoeing', focus: 'center' },
+  { src: Beach, alt: 'Paddleboards at dusk', caption: 'Woodbine Beach', focus: 'bottom' },
+  { src: HockeyAction, alt: 'Hockey', caption: 'Dod and I', focus: 'center' },
+  { src: CoconutForest, alt: 'The coconut forest, Hoi An', caption: 'The coconut forest, Hoi An', focus: 'center' },
+  { src: Coldplay, alt: 'Coldplay concert', caption: "Coldplay concert", focus: 'center' },
+  { src: HanoiTrainStreet, alt: "Hanoi's Train Street, Vietnam", caption: "Hanoi's Train Street, Vietnam", focus: 'center' },
+  { src: MarliesHockey, alt: 'Marlies game', caption: 'Marlies championship game', focus: 'left' },
   { src: Kauai, alt: 'Kalalau lookout, Kauai', caption: 'The Kalalau lookout, Kauai.', focus: 'center' },
-  { src: Hearts, alt: 'Concert crowd', caption: 'The crowd, mid-singalong.', focus: 'center' },
-  { src: KoaCanoe, alt: 'Koa in a canoe', caption: 'Koa, mid-adventure, unbothered by any of it.', focus: 'center' },
-  { src: Husky, alt: 'A husky with a bone', caption: 'Home-turf portrait, mid-treat.', focus: 'center' },
-  { src: AuroraStreet, alt: 'Aurora over a residential street', caption: 'The aurora, from the driveway this time.', focus: 'top' },
-  { src: Millie, alt: 'Millie the dog', caption: 'Millie, guarding a very important cardboard box.', focus: 'center' },
-  { src: MoonlightBeach, alt: 'Friends under a full moon', caption: 'Under a very bright moon, one very questionable idea.', focus: 'bottom' },
-  { src: Palmtrees, alt: 'Palm trees at sunset', caption: 'Palm trees doing their sunset thing.', focus: 'center' },
-  { src: Shoreline, alt: 'A beach at golden hour', caption: "Golden hour on a beach I can't place anymore.", focus: 'center' },
-  { src: Skates, alt: 'Skates on a frozen pond', caption: 'A frozen pond, and a heart etched in the ice by someone.', focus: 'center' },
-  { src: NinhBinhViewpoint, alt: 'Ninh Binh viewpoint, Vietnam', caption: "The view after climbing Ninh Binh's 500 steps.", focus: 'center' },
-  { src: MauiSunset, alt: 'Sunset in Hawaii', caption: 'Watching the sun go down, Hawaii.', focus: 'center' },
-  { src: TorontoRooftop, alt: 'A Toronto rooftop at sunset', caption: 'A Toronto rooftop, right at sunset.', focus: 'center' },
-  { src: Acai, alt: 'Acai bowls', caption: "Three acai bowls, because I couldn't decide on toppings.", focus: 'center' },
-  { src: HockeyAction, alt: 'Hockey, mid-shift', caption: 'Grinders hockey, mid-shift.', focus: 'center' },
-  { src: Bowls, alt: 'Poke and salad bowls', caption: 'The kind of order that takes longer to photograph than eat.', focus: 'center' },
-  { src: Cabo, alt: 'ATVing in Cabo, Mexico', caption: 'Cabo, kicking up more dust than the tour guide would like.', focus: 'bottom' },
-  { src: KoaSleep, alt: 'Koa, backseat driver', caption: 'Koa, supervising the drive from the back seat.', focus: 'center' },
+  { src: Apples, alt: 'Apple picking', caption: 'Apple picking', focus: 'bottom' },
+  { src: TanDinhChurch, alt: 'Tan Dinh Church, Ho Chi Minh City', caption: 'Tan Dinh Church, Ho Chi Minh City.', focus: 'top' },
+  { src: Snowboard, alt: 'Snowboarding', caption: 'Mont Tremblant', focus: 'bottom' },
+  { src: Palmtrees, alt: 'Palm trees at sunset', caption: 'Palm trees in Maui', focus: 'center' },
+  { src: Pizza, alt: 'Wood-fired pizza', caption: 'Piano Piano', focus: 'top' },
+  { src: Shoreline, alt: 'A beach at golden hour', caption: "Beach in Maui", focus: 'center' },
+  { src: Skates, alt: 'Ice skating', caption: 'Frozen pond in Kingston', focus: 'center' },
+  { src: NinhBinhViewpoint, alt: 'Ninh Binh viewpoint, Vietnam', caption: "Hang Mua Peak, Ninh Binh", focus: 'center' },
+  { src: Leilani, alt: 'Leilani', caption: 'Leilani chowing down', focus: 'center' },
+  { src: MauiSunset, alt: 'Sunset in Hawaii', caption: 'Hawaii sunset with Dod', focus: 'center' },
+  { src: Ultimate, alt: 'Frisbee', caption: 'Ultimate Frisbee', focus: 'center 85%' },
+  { src: TorontoRooftop, alt: 'Kingston sunset', caption: 'Kingston sunset', focus: 'center' },
+  { src: Concert, alt: 'A concert, mid-set', caption: 'Forrest Frank concert', focus: 'center' },
+  { src: Posters, alt: 'Ninh Binh posters', caption: 'Posters in Ninh Binh, Vietnam.', focus: 'center' },
+  { src: PickleballSquad, alt: 'Pickleball with the crew', caption: 'Pickleball in Palmetto Springs, South Carolina.', focus: 'center' },
+  { src: GoldenBridge, alt: 'The Golden Bridge, Da Nang, Vietnam', caption: 'The Golden Bridge in Da Nang', focus: 'center 40%' },
+  { src: Queens, alt: 'Queens University', caption: 'Queens University, Homecoming', focus: 'center' },
+  { src: HoiAnBoats, alt: 'Boats in Hoi An, Vietnam', caption: 'The boats in Hoi An, Vietnam.', focus: 'center 40%' },
+  { src: PickleballAction, alt: 'Mid-rally with my Dod', caption: 'Playing outdoors with my Dad.', focus: 'center' },
+  { src: Elephants, alt: 'Elephants in Kenya', caption: 'Elephants in Kenya', focus: 'bottom' },
+  { src: Acai, alt: 'Acai bowls', caption: 'Maui Acai', focus: 'center' },
+  { src: NinhBinhBoat, alt: 'Ninh Binh, Vietnam', caption: 'Boat tour through Ninh Binh.', focus: 'center' },
+  { src: PickleballTrophy, alt: 'APA Ontario Circuit champions', caption: '4.0 Doubles champions with my dad at the APA Ontario Circuit.', focus: 'center' },
+  { src: Safari, alt: 'Nairobi, Kenya', caption: 'Safari in Nairobi, Kenya.', focus: 'center' },
+  { src: Millie, alt: 'Millie', caption: 'Millie', focus: 'center' },
+  { src: HawaiiTiki, alt: 'Hawaii at sunset', caption: 'Maui, Hawaii.', focus: 'top' },
+  { src: AuroraStreet, alt: 'Aurora Borealis', caption: 'The Northern Lights in Kingston', focus: 'center 75%' },
+  { src: PeggysCove, alt: "Peggy's Cove, Nova Scotia", caption: "Peggy's Cove, Nova Scotia.", focus: 'left' },
+  { src: CneFellas, alt: 'Friends at the CNE', caption: 'The fellas at the CNE', focus: 'center 60%' },
+  { src: Cabo, alt: 'ATVing in Cabo, Mexico', caption: 'ATVing in Cabo, Mexico.', focus: 'bottom' },
+  { src: Bowls, alt: 'Poke and salad bowls', caption: 'Poke and Salad Bowls', focus: 'center' },
+  { src: Parthenon, alt: 'The Parthenon, Greece', caption: 'The Parthenon, Greece.', focus: 'left' },
+  { src: KoaSleep, alt: 'Koa, backseat driver', caption: 'Koa sleeping', focus: 'center' },
+  { src: Hearts, alt: 'Hearts from a Coldplay concert', caption: 'All my love, Coldplay', focus: 'center' },
+  { src: Pumpkin, alt: 'Pumpkin', caption: 'My pumpkin', focus: 'center' },
+  { src: Aurora, alt: 'Aurora over an Ontario street', caption: 'The night the aurora borealis showed up over my neighbourhood.', focus: 'top 40%' },
+  { src: MoonlightBeach, alt: 'Under a full moon', caption: 'Under a full moon', focus: 'bottom' },
 ]
 
 const HERO_REEL = [
